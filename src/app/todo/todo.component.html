@@ -1,0 +1,30 @@
+<h1 style="text-align: center;">My Todos</h1>
+
+<div style="border:1 px solid black">
+    <div class="input-group">
+        <input style="border-radius:10px;margin-left:30%;width:37%; height:35px" type="text" #itemTitle>
+        <button id="add" class="input-group-addon hover-cursor" style="margin-left: 10px;" (click)="onAdd(itemTitle)">
+            <i class="fa fa-plus-circle fa-2x"></i>
+        </button>
+    </div>
+    <br>
+
+    <table>
+        <tr>
+            <th>Label</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr class="list-group-item" *ngFor="let item of toDoListArray">
+            <td>{{item.title}}</td>
+            <td> <span class="hover-cursor" [class.text-success]="item.isChecked"
+                    (click)="alterCheck(item.$key,item.isChecked)">
+                    <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+                </span>
+            </td>
+
+            <td><button id="del" class="input-group-delon hover-cursor" (click)="onDelete(item.$key)">Del
+                    <i class="fa fa-trash-o fa-lg"></i>
+                </button>
+                <button  id="upd" class="input-group-delon hover-cursor" >Update</button> </td> </tr>
+                    </table> </div>
